@@ -6,7 +6,7 @@
 #    By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/10 22:33:17 by lmazeaud          #+#    #+#              #
-#    Updated: 2018/08/07 05:07:04 by lmazeaud         ###   ########.fr        #
+#    Updated: 2018/08/27 02:17:28 by lmazeaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ CFLAGS	:=	-Wall -Werror -Wextra
 INCLUDES 	:= includes/
 
 SRC 		:=  srcs/
+
+LIB_PRINTF 	:= -L $(INCLUDES) -lftprintf
 
 SOURCES 	:= 	$(shell find srcs -name '*.c' | rev | cut -d/ -f1 | rev)
 
@@ -44,7 +46,7 @@ LOG_VIOLET		= \033[1;35m
 all : $(NAME)
 	
 $(NAME) : create-folder $(OBJ_FILES)
-	@$(AR) $(NAME) $(OBJ_FILES)
+	@$(AR) $(NAME) $(OBJ_FILES) $(LIB_PRINTF)  
 	@$(RL) $(NAME)
 	@echo "$(LOG_GREEN)LIBFT CREATED SUCCESSFULLY$(LOG_NOCOLOR)"
 
