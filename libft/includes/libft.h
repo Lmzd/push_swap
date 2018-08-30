@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/27 02:19:59 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/29 18:48:08 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,7 +192,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t size);
 
 char				*ft_strcat(char *dest, const char *src);
 
-int					ft_atoi(const char *str);
+long long			ft_atoi(const char *str);
 
 int					ft_isupper(int c);
 
@@ -315,6 +315,8 @@ size_t				ft_wcharlen(wchar_t c);
 char				*ft_fillit(char c, size_t n);
 
 void				ft_wbzero(wchar_t *str, size_t nb);
+
+int					ft_str_is_number(const char *str);
 
 int					ft_printf(const char *format, ...);
 

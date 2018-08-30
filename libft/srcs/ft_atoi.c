@@ -6,17 +6,17 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 20:04:38 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/02 22:59:00 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/29 20:53:55 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
-	int		i;
-	int		is_neg;
-	int		number;
+	int			i;
+	int			is_neg;
+	long long	number;
 
 	i = 0;
 	is_neg = 0;
@@ -24,8 +24,7 @@ int		ft_atoi(const char *str)
 	while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\n')
 		|| (str[i] == '\v') || (str[i] == '\f') || (str[i] == '\r'))
 		i++;
-	if (str[i] == '-')
-		is_neg = 1;
+	is_neg = (str[i] == '-') ? 1 : is_neg;
 	if ((str[i] == '-') || (str[i] == '+'))
 		i++;
 	while ((str[i] >= '0') && (str[i] <= '9'))
@@ -33,6 +32,11 @@ int		ft_atoi(const char *str)
 		number *= 10;
 		number += ((int)str[i] - 48);
 		i++;
+		if ((is_neg && number > 2147483648) || (!is_neg && number > 2147483647))
+		{
+			ft_putstr("error\n");
+			exit(0);
+		}
 	}
 	return ((is_neg) ? -number : number);
 }
