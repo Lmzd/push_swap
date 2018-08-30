@@ -1,2 +1,5 @@
 **/*.o
 .DS_Store
+*.json
+libft/*.a
+push-swap
