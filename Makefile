@@ -6,7 +6,7 @@
 #    By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 02:37:17 by lmazeaud          #+#    #+#              #
-#    Updated: 2018/08/30 18:29:13 by lmazeaud         ###   ########.fr        #
+#    Updated: 2018/08/31 13:59:13 by lmazeaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ LIB		= $(INCS) -L $(LFT)/ -lft -lftprintf
 
 SRCS_D	= srcs
 SRCS	=	push_swap.c		\
-			create_list.c
+			create_list.c	\
+			quicksort.c
 
 OBJ_D	= obj
 OBJ		= $(addprefix $(OBJ_D)/,$(SRCS:.c=.o))

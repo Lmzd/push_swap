@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 03:43:07 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/30 19:13:48 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/31 16:36:10 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,10 @@ int		main(int argc, char **argv)
 			ft_printf("error\n");
 		tab = ft_check_double(argc, argv);
 		begin = ft_create_lst(tab, argc - 1);
+		normalization(tab, argc - 1);
 		a_stack = ft_create_stack(begin);
 	}
 	else
 		ft_printf("error\n");
 }
+

@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 17:27:32 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/30 19:20:05 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/31 16:33:03 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct		s_lst
 {
 	int				data;
+	int				id;
 	struct s_lst	*prev;
 	struct s_lst	*next;
 }					t_lst;
@@ -30,5 +31,6 @@ typedef struct		s_stack
 
 t_lst				*ft_create_lst(int *tab, int nb_val);
 t_stack				*ft_create_stack(t_lst *begin);
+int					*normalization(int	*tab, int nb_val);
 
 #endif

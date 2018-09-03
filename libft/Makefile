@@ -6,7 +6,7 @@
 #    By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/10 22:33:17 by lmazeaud          #+#    #+#              #
-#    Updated: 2018/08/29 18:13:20 by lmazeaud         ###   ########.fr        #
+#    Updated: 2018/08/31 15:59:59 by lmazeaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SRCS 		:= 	ft_abs_intmax.c			\
 				ft_printnum_lst.c		\
 				ft_printstr_arr.c		\
 				ft_printstr_lst.c		\
+				ft_putnbr.c				\
 				ft_putchar_fd.c			\
 				ft_putchar.c			\
 				ft_putendl_fd.c			\

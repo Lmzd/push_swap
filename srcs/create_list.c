@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 21:12:55 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/30 19:20:13 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/31 13:58:12 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_lst	*ft_create_lst(int *tab, int nb_val)
 	{
 		if (!(curr = (t_lst*)malloc(sizeof(t_lst))))
 			return (NULL);
+		curr->id = 0;
 		curr->data = tab[i];
 		curr->next = NULL;
 		curr->prev = NULL;
