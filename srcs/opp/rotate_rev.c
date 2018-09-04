@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 19:45:16 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 18:56:09 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/04 19:44:36 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	rotate_rev_b(t_stack *a, t_stack *b, int status)
 
 void	rotate_rev_ab(t_stack *a, t_stack *b, int status)
 {
-	rotate_rev_a(a, b);
-	rotate_rev_b(a, b);
+	rotate_rev_a(a, b, 0);
+	rotate_rev_b(a, b, 0);
 	if (status)
 		ft_printf("rrr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 19:45:29 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 18:56:07 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/04 20:04:56 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	swap_a(t_stack *a, t_stack *b, int status)
 		return ;
 	first = a->head;
 	sec = first->next;
-	ter = (a->head->next->next) ? a->head->next->next : NULL;
+	ter = (sec->next) ? sec->next : NULL;
 	a->head = sec;
 	if (a->nb_val == 2)
 		a->foot = first;
@@ -64,8 +64,8 @@ void	swap_b(t_stack *a, t_stack *b, int status)
 
 void	swap_ab(t_stack *a, t_stack *b, int status)
 {
-	swap_a(a, b);
-	swap_b(a, b);
+	swap_a(a, b, 0);
+	swap_b(a, b, 0);
 	if (status)
 		ft_printf("ss\n");
 }
