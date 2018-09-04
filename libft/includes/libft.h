@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/29 18:48:08 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/04 01:27:36 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include "get_next_line.h"
 
 typedef struct		s_list
 {
@@ -270,9 +271,9 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 void				ft_printnum_lst(t_list **alst);
 
-void				ft_printnum_arr(int **arr);
+void				ft_printnum_arr(int *arr, size_t nb_val);
 
-void				ft_printstr_arr(const char **arr);
+void				ft_printstr_arr(char **arr);
 
 void				ft_printstr_lst(t_list **alst);
 
@@ -319,5 +320,7 @@ void				ft_wbzero(wchar_t *str, size_t nb);
 int					ft_str_is_number(const char *str);
 
 int					ft_printf(const char *format, ...);
+
+int					get_next_line(const int fd, char **line);
 
 #endif

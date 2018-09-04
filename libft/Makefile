@@ -6,7 +6,7 @@
 #    By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/10 22:33:17 by lmazeaud          #+#    #+#              #
-#    Updated: 2018/08/31 15:59:59 by lmazeaud         ###   ########.fr        #
+#    Updated: 2018/09/03 22:21:42 by lmazeaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +102,8 @@ SRCS 		:= 	ft_abs_intmax.c			\
 				ft_toupper.c			\
 				ft_wbzero.c				\
 				ft_wcharlen.c			\
-				ft_word_count.c			
+				ft_word_count.c			\
+				get_next_line.c
 
 
 OBJ_D		:=	obj
