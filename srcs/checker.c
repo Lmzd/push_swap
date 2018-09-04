@@ -6,31 +6,12 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 19:27:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 07:42:24 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/04 18:55:58 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../includes/checker.h"
-
-void	ft_check_sort(t_stack *a, t_stack *b)
-{
-	if (b->head != NULL)
-		ft_printf("KO\n");
-	else
-	{
-		while (a->head->next)
-		{
-			if (a->head->data > a->head->next->data)
-			{
-				ft_printf("KO\n");
-				exit(0);
-			}
-			a->head = a->head->next;
-		}
-		ft_printf("OK\n");
-	}
-}
 
 int		check_entry(char **entry)
 {
@@ -63,7 +44,7 @@ void	ft_route_opp(char **entry, t_stack *a, t_stack *b, int print)
 		{
 			if (!ft_strcmp(entry[i], g_opp[j].define))
 			{
-				g_opp[j].f(a, b);
+				g_opp[j].f(a, b, 0);
 				if (print)
 				{
 					ft_printf("{lblue}%s{def} :\n", entry[i]);
@@ -88,7 +69,8 @@ void	checker(t_lst *begin, int *tab, int argc, int print)
 	if (!check_entry(entry))
 		ft_printf("Error\n");
 	ft_route_opp(entry, a_stack, b_stack, print);
-	ft_check_sort(a_stack, b_stack);
+	(ft_check_sort(a_stack, b_stack)) ? ft_printf("{lgreen}OK{def}\n")
+		: ft_printf("{lred}KO{def}\n");
 }
 
 int		main(int argc, char **argv)

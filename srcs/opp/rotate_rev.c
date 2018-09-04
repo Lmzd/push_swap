@@ -6,13 +6,13 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 19:45:16 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 07:08:28 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/04 18:56:09 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rotate_rev_a(t_stack *a, t_stack *b)
+void	rotate_rev_a(t_stack *a, t_stack *b, int status)
 {
 	t_lst *first;
 	t_lst *last;
@@ -31,9 +31,11 @@ void	rotate_rev_a(t_stack *a, t_stack *b)
 	first->prev = last;
 	last->next = first;
 	next_to->next = NULL;
+	if (status)
+		ft_printf("rra\n");
 }
 
-void	rotate_rev_b(t_stack *a, t_stack *b)
+void	rotate_rev_b(t_stack *a, t_stack *b, int status)
 {
 	t_lst *first;
 	t_lst *last;
@@ -52,10 +54,14 @@ void	rotate_rev_b(t_stack *a, t_stack *b)
 	first->prev = last;
 	last->next = first;
 	next_to->next = NULL;
+	if (status)
+		ft_printf("rrb\n");
 }
 
-void	rotate_rev_ab(t_stack *a, t_stack *b)
+void	rotate_rev_ab(t_stack *a, t_stack *b, int status)
 {
 	rotate_rev_a(a, b);
 	rotate_rev_b(a, b);
+	if (status)
+		ft_printf("rrr\n");
 }

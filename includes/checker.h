@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 19:28:32 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 07:05:48 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/04 18:52:15 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 typedef struct	s_opp
 {
 	char		*define;
-	void		(*f)(t_stack *, t_stack *);
+	void		(*f)(t_stack *, t_stack *, int);
 }				t_opp;
 
 t_opp			g_opp[] =

@@ -6,13 +6,13 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 19:45:29 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 05:04:32 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/04 18:56:07 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	swap_a(t_stack *a, t_stack *b)
+void	swap_a(t_stack *a, t_stack *b, int status)
 {
 	t_lst *first;
 	t_lst *sec;
@@ -33,9 +33,11 @@ void	swap_a(t_stack *a, t_stack *b)
 	sec->next = first;
 	if (ter)
 		ter->prev = first;
+	if (status)
+		ft_printf("sa\n");
 }
 
-void	swap_b(t_stack *a, t_stack *b)
+void	swap_b(t_stack *a, t_stack *b, int status)
 {
 	t_lst *first;
 	t_lst *sec;
@@ -56,10 +58,14 @@ void	swap_b(t_stack *a, t_stack *b)
 	sec->next = first;
 	if (ter)
 		ter->prev = first;
+	if (status)
+		ft_printf("sb\n");
 }
 
-void	swap_ab(t_stack *a, t_stack *b)
+void	swap_ab(t_stack *a, t_stack *b, int status)
 {
 	swap_a(a, b);
 	swap_b(a, b);
+	if (status)
+		ft_printf("ss\n");
 }

@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 19:44:46 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 07:42:10 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/04 18:55:47 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	push_a_helper(t_stack *a, t_stack *b, t_lst *tmp)
 	b->head = NULL;
 }
 
-void	push_a(t_stack *a, t_stack *b)
+void	push_a(t_stack *a, t_stack *b, int status)
 {
 	t_lst *tmp;
 
@@ -45,6 +45,8 @@ void	push_a(t_stack *a, t_stack *b)
 		tmp->prev = NULL;
 		a->head = tmp;
 	}
+	if (status)
+		ft_printf("pa\n");
 	a->nb_val++;
 	b->nb_val--;
 }
@@ -59,7 +61,7 @@ void	push_b_helper(t_stack *a, t_stack *b, t_lst *tmp)
 	a->head = NULL;
 }
 
-void	push_b(t_stack *a, t_stack *b)
+void	push_b(t_stack *a, t_stack *b, int status)
 {
 	t_lst *tmp;
 
@@ -82,6 +84,8 @@ void	push_b(t_stack *a, t_stack *b)
 		tmp->prev = NULL;
 		b->head = tmp;
 	}
+	if (status)
+		ft_printf("pb\n");
 	a->nb_val--;
 	b->nb_val++;
 }
