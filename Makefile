@@ -6,11 +6,12 @@
 #    By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 02:37:17 by lmazeaud          #+#    #+#              #
-#    Updated: 2018/08/31 13:59:13 by lmazeaud         ###   ########.fr        #
+#    Updated: 2018/09/04 07:03:30 by lmazeaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= push-swap
+NAME1   = checker
 CFLAGS	= -Wall -Werror -Wextra -g
 CC		= gcc
 
@@ -19,35 +20,66 @@ INCS	= -I $(LFT)/includes -I includes
 LIB		= $(INCS) -L $(LFT)/ -lft -lftprintf
 
 SRCS_D	= srcs
-SRCS	=	push_swap.c		\
+SRCS_P	=	push_swap.c		\
 			create_list.c	\
-			quicksort.c
+			error.c			\
+			quicksort.c		\
+			checker.c		\
+			create_list.c 	\
+			entry.c			\
+			print_stack.c	\
+			opp/push.c		\
+			opp/swap.c		\
+			opp/rotate.c	\
+			opp/rotate_rev.c	\
 
-OBJ_D	= obj
-OBJ		= $(addprefix $(OBJ_D)/,$(SRCS:.c=.o))
+
+OBJ_D	= 	obj
+OBJ		= 	$(addprefix $(OBJ_D)/,$(SRCS:.c=.o))
+OBJ_P	=	$(OBJ_D)/push_swap.o		\
+			$(OBJ_D)/create_list.o	\
+			$(OBJ_D)/quicksort.o	\
+			$(OBJ_D)/error.o	\
+			
+
+OBJ_C	=	$(OBJ_D)/checker.o		\
+			$(OBJ_D)/create_list.o 	\
+			$(OBJ_D)/entry.o		\
+			$(OBJ_D)/opp/push.o		\
+			$(OBJ_D)/opp/swap.o		\
+			$(OBJ_D)/opp/rotate.o	\
+			$(OBJ_D)/opp/rotate_rev.o	\
+			$(OBJ_D)/quicksort.o		\
+			$(OBJ_D)/error.o		\
+			$(OBJ_D)/print_stack.o	\
 
 MD		= /bin/mkdir -p
 RM		= /bin/rm -rf
 
-all : $(NAME)
+all : $(NAME) $(NAME1)
 
 create-folder : 
 	@make -C $(LFT)
-	@$(MD) $(OBJ_D)
+	@$(MD) -p $(OBJ_D)
+	@$(MD) -p $(OBJ_D)/opp
 
-$(NAME) : create-folder $(OBJ)
-	@$(CC) -o $(NAME) $(OBJ) $(CFLAGS) $(LIB)  
+$(NAME) : create-folder $(OBJ_P) 
+	@$(CC) -o $@ $(OBJ_P) $(CFLAGS) $(LIB) 
+
+$(NAME1) : $(OBJ_C)
+	@$(CC) -o $@ $(OBJ_C) $(CFLAGS) $(LIB) 
 
 $(OBJ_D)/%.o : $(SRCS_D)/%.c
-	@$(CC) -o $@ -c $< $(CFLAGS)
+	@printf "%33s %10s \n" "👉   $@" "✅ "
+	@$(CC) -o $@ -c $< $(CFLAGS) $(INCS)
 
 clean :
 	@make -C $(LFT) clean 
 	@$(RM) $(OBJ_D)
 
-fclean :
+fclean : clean
 	@make -C $(LFT) fclean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(NAME1)
 
 re	: fclean all
 
