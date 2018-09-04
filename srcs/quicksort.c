@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:58:23 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/03 18:17:19 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/04 07:43:52 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,11 @@ void		quicksort(int *tab, int *pivot, int nb_val)
 	if (*pivot == -1)
 		*pivot = nb_val - 1;
 	i = 0;
-	ft_printnum_arr(tab, nb_val);
 	while (i < *pivot)
 	{
 		tmp = tab[i];
 		if (tab[i] > tab[*pivot])
 			ft_swap(tab, i, pivot, nb_val);
-		ft_printf("------- Tour Pivot : {green}%d{def} -------- \n", *pivot);
-		ft_printnum_arr(tab, nb_val);
 		if (tmp == tab[i])
 			i++;
 	}
