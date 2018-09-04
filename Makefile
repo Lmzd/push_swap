@@ -6,7 +6,7 @@
 #    By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 02:37:17 by lmazeaud          #+#    #+#              #
-#    Updated: 2018/09/04 07:03:30 by lmazeaud         ###   ########.fr        #
+#    Updated: 2018/09/04 18:36:47 by lmazeaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ LIB		= $(INCS) -L $(LFT)/ -lft -lftprintf
 SRCS_D	= srcs
 SRCS_P	=	push_swap.c		\
 			create_list.c	\
+			check_sort.c	\
 			error.c			\
 			quicksort.c		\
 			checker.c		\
@@ -40,6 +41,7 @@ OBJ_P	=	$(OBJ_D)/push_swap.o		\
 			$(OBJ_D)/create_list.o	\
 			$(OBJ_D)/quicksort.o	\
 			$(OBJ_D)/error.o	\
+			$(OBJ_D)/check_sort.o	\
 			
 
 OBJ_C	=	$(OBJ_D)/checker.o		\
@@ -52,6 +54,7 @@ OBJ_C	=	$(OBJ_D)/checker.o		\
 			$(OBJ_D)/quicksort.o		\
 			$(OBJ_D)/error.o		\
 			$(OBJ_D)/print_stack.o	\
+			$(OBJ_D)/check_sort.o	\
 
 MD		= /bin/mkdir -p
 RM		= /bin/rm -rf
