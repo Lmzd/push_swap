@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 17:27:32 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 07:07:19 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/04 18:34:37 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ char				**read_entry(void);
 int					check_entry(char **entry);
 void				ft_route_opp(char **entry, t_stack *a, t_stack *b,
 				int print);
+int					ft_check_sort(t_stack *a, t_stack *b);
 
 #endif
