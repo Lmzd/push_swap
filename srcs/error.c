@@ -1,36 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/27 03:43:07 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 07:19:26 by lmazeaud         ###   ########.fr       */
+/*   Created: 2018/09/03 22:34:59 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/09/04 07:43:43 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		main(int argc, char **argv)
+int		ft_check_argv(char **argv)
 {
-	int		*tab;
-	t_lst	*begin;
-	t_stack	*a_stack;
+	int i;
 
-	if (argc > 2)
+	i = 0;
+	while (argv[i])
 	{
-		argv++;
-		if ((!ft_check_argv(argv)) || (!ft_check_double(argc, argv)))
-		{
-			ft_printf("Error\n");
-			exit(0);
-		}
-		tab = ft_check_double(argc, argv);
-		begin = ft_create_lst(tab, argc - 1);
-		normalization(tab, argc - 1);
-		a_stack = ft_create_stack(begin, tab, argc - 1);
+		if (!ft_str_is_number(argv[i]))
+			return (0);
+		i++;
 	}
-	else
-		ft_printf("Error\n");
+	return (1);
+}
+
+int		*ft_check_double(int argc, char **argv)
+{
+	int *tab;
+	int i;
+	int j;
+
+	i = -1;
+	if (!(tab = (int*)malloc(sizeof(int) * argc)))
+		return (0);
+	while (argv[++i])
+		tab[i] = ft_atoi(argv[i]);
+	i = -1;
+	while (++i < argc)
+	{
+		j = i;
+		while (tab[++j])
+			if (tab[i] == tab[j])
+				return (0);
+	}
+	return (tab);
 }
