@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 02:41:25 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 07:43:18 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/06 20:23:40 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ void	ft_print_stack(const char *title, t_stack *stack)
 		elem = elem->next;
 	}
 	ft_printf(" {lgreen}(null){def} {lred}⏩  ={def} {lcyan}%d{def}\
-{lred} && ⏪  ={def}{lcyan} %d{def}", stack->head->data, stack->foot->data);
+{lred} && ⏪  ={def}{lcyan} %d{def}\n", stack->head->data, stack->foot->data);
+	ft_printf("{yellow}min :{def} {lmag}%d{def} | {yellow}max :{def} \
+{lmag}%d{def} | {yellow}med :{def} {lmag}%d{def}", stack->min, 
+	stack->max, stack->med);
 	ft_printf("\n");
 }
