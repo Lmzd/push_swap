@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 21:12:55 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 07:22:54 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/09 01:31:21 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,13 @@ t_lst	*ft_create_lst(int *tab, int nb_val)
 	return (begin);
 }
 
+void	ft_init_stack_params(t_stack *stack)
+{
+	stack->min = ft_get_min(stack->head);
+	stack->max = ft_get_max(stack->head);
+	stack->med = ft_get_med(stack->head, stack->nb_val);
+}
+
 t_stack	*ft_create_stack(t_lst *begin, int *tab, int nb_val)
 {
 	t_lst	*elem;
@@ -74,6 +81,7 @@ t_stack	*ft_create_stack(t_lst *begin, int *tab, int nb_val)
 				elem->id = i;
 		elem = elem->next;
 	}
+	ft_init_stack_params(stack);
 	return (stack);
 }
 
@@ -86,5 +94,8 @@ t_stack	*ft_init_stack(void)
 	stack->foot = NULL;
 	stack->head = NULL;
 	stack->nb_val = 0;
+	stack->med = 0;
+	stack->min = 0;
+	stack->max = 0;
 	return (stack);
 }
