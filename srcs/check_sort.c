@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 18:33:35 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 18:33:54 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/04 20:28:46 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int	ft_check_sort(t_stack *a, t_stack *b)
 {
+	t_lst *curr;
+
 	if (b->head != NULL)
 		return (0);
-	else
+	curr = a->head;
+	while (curr->next)
 	{
-		while (a->head->next)
-		{
-			if (a->head->data > a->head->next->data)
-				return (0);
-			a->head = a->head->next;
-		}
-		return (1);
+		if (curr->id > curr->next->id)
+			return (0);
+		curr = curr->next;
 	}
+	return (1);
 }
