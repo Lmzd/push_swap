@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 17:27:32 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 18:34:37 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/09 00:59:30 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ typedef struct		s_stack
 {
 	t_lst			*head;
 	t_lst			*foot;
+	int				max;
+	int				min;
+	int				med;
 	int				nb_val;
 }					t_stack;
 
@@ -42,5 +45,8 @@ int					check_entry(char **entry);
 void				ft_route_opp(char **entry, t_stack *a, t_stack *b,
 				int print);
 int					ft_check_sort(t_stack *a, t_stack *b);
+int					ft_get_med(t_lst *list, int nb_val);
+int					ft_get_max(t_lst *list);
+int					ft_get_min(t_lst *list);
 
 #endif
