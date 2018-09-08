@@ -6,7 +6,7 @@
 #    By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 02:37:17 by lmazeaud          #+#    #+#              #
-#    Updated: 2018/09/04 18:36:47 by lmazeaud         ###   ########.fr        #
+#    Updated: 2018/09/06 20:18:18 by lmazeaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS_P	=	push_swap.c		\
 			create_list.c 	\
 			entry.c			\
 			print_stack.c	\
+			get_stack_params.c	\
 			opp/push.c		\
 			opp/swap.c		\
 			opp/rotate.c	\
@@ -41,12 +42,18 @@ OBJ_P	=	$(OBJ_D)/push_swap.o		\
 			$(OBJ_D)/create_list.o	\
 			$(OBJ_D)/quicksort.o	\
 			$(OBJ_D)/error.o	\
+			$(OBJ_D)/get_stack_params.o \
 			$(OBJ_D)/check_sort.o	\
+			$(OBJ_D)/opp/push.o		\
+			$(OBJ_D)/opp/swap.o		\
+			$(OBJ_D)/opp/rotate.o	\
+			$(OBJ_D)/opp/rotate_rev.o	\
 			
 
 OBJ_C	=	$(OBJ_D)/checker.o		\
 			$(OBJ_D)/create_list.o 	\
 			$(OBJ_D)/entry.o		\
+			$(OBJ_D)/get_stack_params.o \
 			$(OBJ_D)/opp/push.o		\
 			$(OBJ_D)/opp/swap.o		\
 			$(OBJ_D)/opp/rotate.o	\
