@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 17:27:32 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/09 00:59:30 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/09 06:21:52 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct		s_lst
 {
-	int				data;
+	int				n;
 	int				id;
 	struct s_lst	*prev;
 	struct s_lst	*next;
@@ -44,9 +44,14 @@ char				**read_entry(void);
 int					check_entry(char **entry);
 void				ft_route_opp(char **entry, t_stack *a, t_stack *b,
 				int print);
-int					ft_check_sort(t_stack *a, t_stack *b);
+int					ft_check_sort(t_stack *a, t_stack *b, int sort_status);
+int					ft_check_sort_b(t_stack *a, t_stack *b);
 int					ft_get_med(t_lst *list, int nb_val);
 int					ft_get_max(t_lst *list);
 int					ft_get_min(t_lst *list);
+void				ft_sort_three_b(t_stack *a, t_stack *b);
+void				ft_sort_three_a(t_stack *a, t_stack *b, int sort_status);
+void				push_to_b(t_stack *a, t_stack *b, int iteration);
+void				push_to_a(t_stack *a, t_stack *b);
 
 #endif

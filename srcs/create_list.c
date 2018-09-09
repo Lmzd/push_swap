@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 21:12:55 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/09 01:31:21 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/09 03:55:52 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_lst	*ft_create_lst(int *tab, int nb_val)
 		if (!(curr = (t_lst*)malloc(sizeof(t_lst))))
 			return (NULL);
 		curr->id = 0;
-		curr->data = tab[i];
+		curr->n = tab[i];
 		curr->next = NULL;
 		curr->prev = NULL;
 		ft_add_lst(&begin, curr);
@@ -77,7 +77,7 @@ t_stack	*ft_create_stack(t_lst *begin, int *tab, int nb_val)
 	{
 		i = -1;
 		while (++i < nb_val)
-			if (tab[i] == elem->data)
+			if (tab[i] == elem->n)
 				elem->id = i;
 		elem = elem->next;
 	}
