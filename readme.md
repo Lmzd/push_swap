@@ -1,24 +1,16 @@
 # PUSH SWAP 
 
-### 1 - Algorithm
-#### Parser
+## 1 - Algorithm
+### Parser
 - check number of arguments
 - check the validity of arguments
 - check if double number exist
 - Parse all arguments into a doubly linked list
 - Create a structure name t_stack which always knows the head and the tail of the list
 
-#### Normalisation
+### Normalisation
 - Do a quicksort algorithm to sort a int tab
 - With this sorted tab, put the good id to all link of the list
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
 
 ### Sort
 #### Sort for 3 args
