@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 19:27:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 18:55:58 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/09 04:11:14 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	checker(t_lst *begin, int *tab, int argc, int print)
 	if (!check_entry(entry))
 		ft_printf("Error\n");
 	ft_route_opp(entry, a_stack, b_stack, print);
-	(ft_check_sort(a_stack, b_stack)) ? ft_printf("{lgreen}OK{def}\n")
+	(ft_check_sort(a_stack, b_stack, 1)) ? ft_printf("{lgreen}OK{def}\n")
 		: ft_printf("{lred}KO{def}\n");
 }
 
