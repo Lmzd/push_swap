@@ -6,39 +6,43 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 03:43:07 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/09 01:33:03 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/09 06:23:29 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include "../includes/operation.h"
-
-void	ft_sort_three(t_stack *a, t_stack *b)
-{
-	if (ft_check_sort(a, b))
-		exit(0);
-	if ((a->head->id == 2 && a->foot->id == 1)
-		|| (a->head->id == 2 && a->foot->id == 0))
-		rotate_a(a, b, 1);
-	else if ((a->head->id == 0 && a->foot->id == 1)
-		|| (a->head->id == 1 && a->foot->id == 0))
-		rotate_rev_a(a, b, 1);
-	else if (a->head->id == 1 && a->foot->id == 2)
-		swap_a(a, b, 1);
-	ft_sort_three(a, b);
-}
 
 void	ft_sort_all(t_stack *a, t_stack *b)
 {
-	if (ft_check_sort(a, b))
+	if (ft_check_sort(a, b, 1))
 		exit(0);
 	ft_sort_all(a, b);
+}
+
+void	sort_both(t_stack *a, t_stack *b)
+{
+	ft_sort_three_a(a, b, 0);
+	ft_sort_three_b(a, b);
+}
+
+void	ft_sort_few(t_stack *a, t_stack *b)
+{
+	int		nb_val;
+
+	if (ft_check_sort(a, b, 1))
+		return ;
+	nb_val = a->nb_val;
+	push_to_b(a, b, (nb_val / 2));
+	sort_both(a, b);
+	push_to_a(a, b);
 }
 
 void	ft_sort_stack(t_stack *a, t_stack *b)
 {
 	if (a->nb_val <= 3)
-		ft_sort_three(a, b);
+		ft_sort_three_a(a, b, 1);
+	else if (a->nb_val <= 6)
+		ft_sort_few(a, b);
 	else
 		ft_sort_all(a, b);
 }
