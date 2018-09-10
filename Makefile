@@ -6,7 +6,7 @@
 #    By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/27 02:37:17 by lmazeaud          #+#    #+#              #
-#    Updated: 2018/09/09 06:22:53 by lmazeaud         ###   ########.fr        #
+#    Updated: 2018/09/10 07:21:58 by lmazeaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ OBJ_P	=	$(OBJ_D)/push_swap.o		\
 			$(OBJ_D)/ft_sort_three.o	\
 			$(OBJ_D)/get_stack_params.o \
 			$(OBJ_D)/check_sort.o	\
+			$(OBJ_D)/print_stack.o	\
 			$(OBJ_D)/opp/push.o		\
 			$(OBJ_D)/opp/swap.o		\
 			$(OBJ_D)/opp/rotate.o	\
