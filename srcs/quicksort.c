@@ -6,13 +6,13 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:58:23 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 07:43:52 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/10 13:43:53 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int			ft_sort(int *tab, int nb_val)
+static inline int			ft_sort(int *tab, int nb_val)
 {
 	int i;
 
