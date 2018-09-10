@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 19:27:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/09 04:11:14 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/09 07:45:07 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	ft_route_opp(char **entry, t_stack *a, t_stack *b, int print)
 					ft_print_stack("stack a", a);
 					ft_print_stack("stack b", b);
 					ft_printf("\n");
+					ft_init_stack_params(a);
+					ft_init_stack_params(b);
 				}
 			}
 		}
