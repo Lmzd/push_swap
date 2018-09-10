@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 21:12:55 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/09 03:55:52 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/10 15:03:50 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,6 @@ t_lst	*ft_create_lst(int *tab, int nb_val)
 	return (begin);
 }
 
-void	ft_init_stack_params(t_stack *stack)
-{
-	stack->min = ft_get_min(stack->head);
-	stack->max = ft_get_max(stack->head);
-	stack->med = ft_get_med(stack->head, stack->nb_val);
-}
-
 t_stack	*ft_create_stack(t_lst *begin, int *tab, int nb_val)
 {
 	t_lst	*elem;
@@ -98,4 +91,19 @@ t_stack	*ft_init_stack(void)
 	stack->min = 0;
 	stack->max = 0;
 	return (stack);
+}
+
+t_brain	*ft_init_brain(int *tab, t_stack *a)
+{
+	t_brain *brain;
+
+	if (!(brain = (t_brain*)malloc(sizeof(t_brain))))
+		return (NULL);
+	brain->index = 0;
+	brain->loop = a->nb_val / 3;
+	brain->nb_val_a = a->nb_val;
+	brain->tab = tab;
+	brain->min = tab[brain->index * brain->loop];
+	brain->max = tab[(brain->index + 1) * brain->loop];
+	return (brain);
 }
