@@ -6,42 +6,33 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 19:53:22 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/09 04:49:45 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/10 15:24:15 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		ft_get_min(t_lst *list)
+void	ft_get_min(t_brain *brain)
 {
-	t_lst	*elem;
-	int		min;
-
-	elem = list;
-	min = elem->n;
-	while (elem)
-	{
-		if (elem->n < min)
-			min = elem->n;
-		elem = elem->next;
-	}
-	return (min);
+	brain->min = brain->tab[brain->index * brain->loop];
 }
 
-int		ft_get_max(t_lst *list)
+void	ft_get_max(t_brain *brain)
 {
-	t_lst	*elem;
-	int		max;
+	int index;
 
-	elem = list;
-	max = elem->n;
-	while (elem)
-	{
-		if (elem->n > max)
-			max = elem->n;
-		elem = elem->next;
-	}
-	return (max);
+	index = (brain->index + 1) * brain->loop;
+	brain->max = brain->tab[--index];
+}
+
+void	ft_get_med_2(t_brain *brain)
+{
+	int offset;
+	int	index;
+
+	offset = (!brain->index) ? 0 : brain->loop / 2;
+	index = (((brain->index + 1) * brain->loop) / 2) + (offset * brain->index);
+	brain->med = brain->tab[--index];
 }
 
 int		ft_get_med(t_lst *list, int nb_val)
@@ -50,6 +41,8 @@ int		ft_get_med(t_lst *list, int nb_val)
 	t_lst	*elem;
 	int		odd;
 
+	if (!list)
+		return (0);
 	elem = list;
 	odd = (nb_val % 2) ? 0 : 1;
 	med = (nb_val + odd) / 2;
@@ -57,8 +50,12 @@ int		ft_get_med(t_lst *list, int nb_val)
 	{
 		if (elem->id == med)
 			return (elem->n);
-
 		elem = elem->next;
 	}
 	return (0);
+}
+
+void	ft_init_stack_params(t_stack *stack)
+{
+	stack->med = ft_get_med(stack->head, stack->nb_val);
 }

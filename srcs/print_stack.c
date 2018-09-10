@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 02:41:25 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/09 03:55:52 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/10 14:53:31 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_print_stack(const char *title, t_stack *stack)
 	elem = stack->head;
 	while (elem)
 	{
-		ft_printf(" {lgreen}%d{def} {lyellow}->{def}", elem->n);
+		ft_printf(" %d", elem->n);
 		elem = elem->next;
 	}
 	ft_printf(" {lgreen}(null){def} {lred}⏩  ={def} {lcyan}%d{def}\
