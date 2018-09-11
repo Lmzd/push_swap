@@ -6,11 +6,13 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 03:43:07 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/10 16:57:30 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/11 22:48:01 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h> 
+#include <time.h>
 
 void	ft_sort_all(t_brain *brain, t_stack *a, t_stack *b)
 {
@@ -18,7 +20,7 @@ void	ft_sort_all(t_brain *brain, t_stack *a, t_stack *b)
 
 	nb_val = a->nb_val;
 	push_all_to_b(brain, a, b);
-	// push_all_to_a(a, b, nb_val - 1);
+	push_all_to_a(brain, a, b);
 }
 
 void	sort_both(t_stack *a, t_stack *b)
@@ -59,6 +61,7 @@ static void	ft_sort(int *tab_s, t_lst *begin, int nb_val)
 	b_stack = ft_init_stack();
 	brain = ft_init_brain(tab_s, a_stack);
 	ft_sort_stack(brain, a_stack, b_stack);
+	free_list(brain, a_stack, b_stack, tab_s);
 }
 
 int		main(int argc, char **argv)
@@ -70,16 +73,16 @@ int		main(int argc, char **argv)
 	if (--argc >= 2)
 	{
 		argv++;
-		if ((!ft_check_argv(argv)) || (!ft_check_double(argc, argv)))
+		if ((!ft_check_argv(argv)) || !(tab = ft_check_double(argc, argv)))
 		{
-			ft_printf("Error1\n");
+			ft_printf("Error\n");
 			exit(0);
 		}
-		tab = ft_check_double(argc, argv);
 		begin = ft_create_lst(tab, argc);
 		tab_s = normalization(tab, argc);
 		ft_sort(tab_s, begin, argc);
+		free(tab);
 	}
 	else
-		ft_printf("Error0\n");
+		ft_printf("Error\n");
 }
