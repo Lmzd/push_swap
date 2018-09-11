@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 19:53:22 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/10 15:24:15 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/10 21:15:37 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	ft_get_min(t_brain *brain)
 {
+	int		index;
+
+	index = brain->index * brain->loop;
+	(!brain->index) ? index : index--;
 	brain->min = brain->tab[brain->index * brain->loop];
 }
 
