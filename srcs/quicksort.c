@@ -6,13 +6,13 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:58:23 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/10 13:43:53 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/11 12:00:25 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static inline int			ft_sort(int *tab, int nb_val)
+static inline int	ft_sort(int *tab, int nb_val)
 {
 	int i;
 
@@ -26,7 +26,7 @@ static inline int			ft_sort(int *tab, int nb_val)
 	return (1);
 }
 
-static void	ft_swap(int *tab, int id, int *pivot, int nb_val)
+static inline void	ft_swap(int *tab, int id, int *pivot, int nb_val)
 {
 	int tmp;
 
@@ -48,7 +48,7 @@ static void	ft_swap(int *tab, int id, int *pivot, int nb_val)
 	}
 }
 
-void		quicksort(int *tab, int *pivot, int nb_val)
+static inline void	quicksort(int *tab, int *pivot, int nb_val)
 {
 	int i;
 	int tmp;
@@ -70,7 +70,7 @@ void		quicksort(int *tab, int *pivot, int nb_val)
 	quicksort(tab, pivot, nb_val);
 }
 
-int			*normalization(int *tab, int nb_val)
+extern int			*normalization(int *tab, int nb_val)
 {
 	int	*pivot;
 
@@ -78,5 +78,6 @@ int			*normalization(int *tab, int nb_val)
 		return (0);
 	*pivot = nb_val - 1;
 	quicksort(tab, pivot, nb_val);
+	free(pivot);
 	return (tab);
 }
