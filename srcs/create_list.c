@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 21:12:55 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/10 15:03:50 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/11 10:11:33 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ t_brain	*ft_init_brain(int *tab, t_stack *a)
 	if (!(brain = (t_brain*)malloc(sizeof(t_brain))))
 		return (NULL);
 	brain->index = 0;
-	brain->loop = a->nb_val / 3;
-	brain->nb_val_a = a->nb_val;
+	brain->iteration = get_iteratoin_number(a->nb_val);
+	brain->loop = a->nb_val / brain->iteration;
 	brain->tab = tab;
 	brain->min = tab[brain->index * brain->loop];
 	brain->max = tab[(brain->index + 1) * brain->loop];
