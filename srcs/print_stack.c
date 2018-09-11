@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 02:41:25 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/10 14:53:31 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/11 13:27:45 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,14 @@ void	ft_print_stack(const char *title, t_stack *stack)
 	ft_printf("{red}---{def} {lmag}%s{def} {red}---{def}\n", title);
 	if (stack->head == NULL)
 	{
-		ft_printf(" {lgreen}(null){def}\n");
+		ft_printf(" {lyellow}(null){def}\n");
 		return ;
 	}
 	elem = stack->head;
 	while (elem)
 	{
-		ft_printf(" %d", elem->n);
+		ft_printf("{lcyan} %d{def}", elem->n);
 		elem = elem->next;
 	}
-	ft_printf(" {lgreen}(null){def} {lred}⏩  ={def} {lcyan}%d{def}\
-{lred} && ⏪  ={def}{lcyan} %d{def}\n", stack->head->n, stack->foot->n);
-	ft_printf("{yellow}min :{def} {lmag}%d{def} | {yellow}max :{def} \
-{lmag}%d{def} | {yellow}med :{def} {lmag}%d{def}", stack->min, 
-	stack->max, stack->med);
 	ft_printf("\n");
 }
