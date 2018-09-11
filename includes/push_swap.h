@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 17:27:32 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/11 23:25:11 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/11 23:36:32 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,5 @@ int					ft_is_rb(t_brain *brain, t_stack *b);
 int					ft_is_rrb(t_brain *brain, t_stack *b);
 void				free_list(t_brain *brain, t_stack *a, t_stack *b, int *tab);
 void				free_stack(t_stack *stack);
-void				free_entry(char **entry, int *nb);
 
 #endif

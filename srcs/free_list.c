@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:43:17 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/11 23:20:32 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/11 23:36:09 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,29 +56,4 @@ void	free_list(t_brain *brain, t_stack *a, t_stack *b, int *tab)
 	free(brain);
 	free_stack(b);
 	free_stack(a);
-}
-
-void	free_entry(char **entry, int *nb)
-{
-	char	*tmp;
-	char	*curr;
-	int		i;
-
-	ft_printf("free entry %d\n", *nb);
-	curr = *entry;
-	ft_printf("curr %s\n", curr);
-	i = -1;
-	*nb -= 3;
-	while (++i < *nb)
-	{
-		ft_printf("i: %d\n", i);
-		ft_printf("curr %s\n", curr);
-		tmp = curr;
-		curr++;
-		ft_printf("curr %p\n", curr);
-		ft_printf("curr %s\n", curr);
-		free(tmp);
-	}
-	free(nb);
-	free(entry);
 }
