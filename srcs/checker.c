@@ -6,14 +6,14 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 19:27:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/12 09:44:05 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/12 10:43:48 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../includes/checker.h"
 
-static inline void init_opps(t_opp[12] opp)
+static inline void init_opps(t_opp opp[12])
 {
 
 	ft_strcpy(opp[0].define, PUSH_A);
@@ -42,12 +42,12 @@ static inline void init_opps(t_opp[12] opp)
 	opp[11].f = 0;
 }
 
-int		check_entry(char **entry)
+int check_entry(char **entry)
 {
 	int i;
 	int j;
 	int nb_check;
-	t_opp	opp[12];
+	t_opp opp[12];
 
 	i = -1;
 	nb_check = 0;
@@ -62,14 +62,14 @@ int		check_entry(char **entry)
 	return ((i == nb_check) ? 1 : 0);
 }
 
-void	ft_route_opp(char **entry, t_stack *a, t_stack *b, int print)
+void ft_route_opp(char **entry, t_stack *a, t_stack *b, int print)
 {
 	int i;
 	int j;
-	t_opp	*opp;
+	t_opp opp[12];
 
 	i = -1;
-	opp = init_opps();
+	init_opps(opp);
 	while (entry[++i])
 	{
 		j = -1;
@@ -94,11 +94,11 @@ void	ft_route_opp(char **entry, t_stack *a, t_stack *b, int print)
 	free(entry);
 }
 
-void	checker(t_lst *begin, int *tab, int argc, int print)
+void checker(t_lst *begin, int *tab, int argc, int print)
 {
 	t_stack *a_stack;
 	t_stack *b_stack;
-	char	**entry;
+	char **entry;
 
 	a_stack = ft_create_stack(begin, tab, argc);
 	b_stack = ft_init_stack();
@@ -107,18 +107,18 @@ void	checker(t_lst *begin, int *tab, int argc, int print)
 		ft_printf("Error\n");
 	ft_route_opp(entry, a_stack, b_stack, print);
 	(ft_check_sort(a_stack, b_stack, 1)) ? ft_printf("OK\n")
-		: ft_printf("KO\n");
+										 : ft_printf("KO\n");
 	free_stack(a_stack);
 	free_stack(b_stack);
 	free(tab);
 }
 
-int		main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	int		*tab;
-	t_lst	*begin;
-	int		*tab_1;
-	int		print;
+	int *tab;
+	t_lst *begin;
+	int *tab_1;
+	int print;
 
 	if (--argc > 2)
 	{
