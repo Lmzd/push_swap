@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 20:04:38 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/29 20:53:55 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/12 18:48:39 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ long long	ft_atoi(const char *str)
 		i++;
 		if ((is_neg && number > 2147483648) || (!is_neg && number > 2147483647))
 		{
-			ft_putstr("error\n");
+			ft_putstr("Error\n");
 			exit(0);
 		}
 	}

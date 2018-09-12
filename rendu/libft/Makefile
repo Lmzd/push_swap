@@ -6,7 +6,7 @@
 #    By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/10 22:33:17 by lmazeaud          #+#    #+#              #
-#    Updated: 2018/09/03 22:21:42 by lmazeaud         ###   ########.fr        #
+#    Updated: 2018/09/12 22:52:55 by lmazeaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS 		:= 	ft_abs_intmax.c			\
 				ft_bzero.c				\
 				ft_cutstr.c				\
 				ft_fillit.c				\
+				ft_freetabstr.c			\
 				ft_isalnum.c			\
 				ft_isalpha.c			\
 				ft_isascii.c			\
@@ -121,17 +122,15 @@ LOG_RED			= \033[1;31m
 LOG_GREEN		= \033[32m
 LOG_VIOLET		= \033[1;35m
 
-all : create-folder $(NAME)
+all :  $(NAME)
 	
-$(NAME) :  $(OBJ)
+$(NAME) : $(OBJ)
 	@$(AR) $(NAME) $(OBJ)
 	@$(RL) $(NAME)
 	@echo "$(LOG_GREEN)LIBFT CREATED SUCCESSFULLY$(LOG_NOCOLOR)"
 
-create-folder :
-	@mkdir -p $(OBJ_D)
-
 $(OBJ_D)/%.o : $(SRCS_D)/%.c
+	@mkdir -p $(OBJ_D)
 	@$(CC) $(CFLAGS) -o $@ -c $< -I$(INCLUDES)
 	@printf "%33s %10s \n" "👉   $@" "✅ " 
 
@@ -150,4 +149,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY: create_folder all clean fclean re norme
+.PHONY: all clean fclean re norme

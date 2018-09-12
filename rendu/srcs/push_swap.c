@@ -6,15 +6,13 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 03:43:07 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/11 22:48:01 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/12 22:37:17 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h> 
-#include <time.h>
 
-void	ft_sort_all(t_brain *brain, t_stack *a, t_stack *b)
+static inline void	ft_sort_all(t_brain *brain, t_stack *a, t_stack *b)
 {
 	int nb_val;
 
@@ -23,13 +21,7 @@ void	ft_sort_all(t_brain *brain, t_stack *a, t_stack *b)
 	push_all_to_a(brain, a, b);
 }
 
-void	sort_both(t_stack *a, t_stack *b)
-{
-	ft_sort_three_a(a, b, 0);
-	ft_sort_three_b(a, b);
-}
-
-void	ft_sort_few(t_stack *a, t_stack *b)
+static inline void	ft_sort_few(t_stack *a, t_stack *b)
 {
 	int		nb_val;
 
@@ -37,12 +29,15 @@ void	ft_sort_few(t_stack *a, t_stack *b)
 		return ;
 	nb_val = a->nb_val;
 	push_to_b(a, b, (nb_val / 2));
-	sort_both(a, b);
+	ft_sort_three_a(a, b, 0);
+	ft_sort_three_b(a, b);
 	push_to_a(a, b);
 }
 
-void	ft_sort_stack(t_brain *brain, t_stack *a, t_stack *b)
+static inline void	ft_sort_stack(t_brain *brain, t_stack *a, t_stack *b)
 {
+	if (ft_check_sort(a, b, 1))
+		return ;
 	if (a->nb_val <= 3)
 		ft_sort_three_a(a, b, 1);
 	else if (a->nb_val <= 6)
@@ -51,7 +46,7 @@ void	ft_sort_stack(t_brain *brain, t_stack *a, t_stack *b)
 		ft_sort_all(brain, a, b);
 }
 
-static void	ft_sort(int *tab_s, t_lst *begin, int nb_val)
+void				ft_sort_main(int *tab_s, t_lst *begin, int nb_val)
 {
 	t_stack	*a_stack;
 	t_stack	*b_stack;
@@ -64,25 +59,24 @@ static void	ft_sort(int *tab_s, t_lst *begin, int nb_val)
 	free_list(brain, a_stack, b_stack, tab_s);
 }
 
-int		main(int argc, char **argv)
+int					main(int argc, char **argv)
 {
 	int		*tab;
 	int		*tab_s;
 	t_lst	*begin;
 
-	if (--argc >= 2)
+	tab = NULL;
+	if (--argc >= 1)
 	{
 		argv++;
+		if (ft_strhas_char(argv[0], ' '))
+			ft_sort_one_arg(argv[0]);
 		if ((!ft_check_argv(argv)) || !(tab = ft_check_double(argc, argv)))
-		{
-			ft_printf("Error\n");
-			exit(0);
-		}
+			print_error();
 		begin = ft_create_lst(tab, argc);
 		tab_s = normalization(tab, argc);
-		ft_sort(tab_s, begin, argc);
+		ft_sort_main(tab_s, begin, argc);
 		free(tab);
 	}
-	else
-		ft_printf("Error\n");
+	return (0);
 }

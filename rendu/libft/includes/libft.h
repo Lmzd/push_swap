@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 01:27:36 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/12 20:35:05 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -322,5 +322,7 @@ int					ft_str_is_number(const char *str);
 int					ft_printf(const char *format, ...);
 
 int					get_next_line(const int fd, char **line);
+
+extern void			ft_freetabstr(char **tab, int nb);
 
 #endif

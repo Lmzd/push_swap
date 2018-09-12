@@ -6,13 +6,13 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 22:34:59 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 07:43:43 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/12 22:36:27 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		ft_check_argv(char **argv)
+extern int	ft_check_argv(char **argv)
 {
 	int i;
 
@@ -26,7 +26,7 @@ int		ft_check_argv(char **argv)
 	return (1);
 }
 
-int		*ft_check_double(int argc, char **argv)
+extern int	*ft_check_double(int argc, char **argv)
 {
 	int *tab;
 	int i;
@@ -37,13 +37,38 @@ int		*ft_check_double(int argc, char **argv)
 		return (0);
 	while (argv[++i])
 		tab[i] = ft_atoi(argv[i]);
-	i = -1;
-	while (++i < argc)
+	i = 0;
+	while (i < argc)
 	{
-		j = i;
-		while (tab[++j])
+		j = i + 1;
+		while (j < argc)
+		{
 			if (tab[i] == tab[j])
+			{
+				free(tab);
 				return (0);
+			}
+			j++;
+		}
+		i++;
 	}
 	return (tab);
+}
+
+extern void	print_error(void)
+{
+	ft_printf("Error\n");
+	exit(0);
+}
+
+extern int	ft_strtablen(char **tab)
+{
+	int i;
+	int len;
+
+	len = 0;
+	i = -1;
+	while (tab[++i])
+		len++;
+	return (len);
 }

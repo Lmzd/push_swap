@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_freetabstr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/13 18:55:34 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/04/23 13:58:57 by lmazeaud         ###   ########.fr       */
+/*   Created: 2018/09/12 20:10:39 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/09/12 20:38:40 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+extern void	ft_freetabstr(char **tab, int nb)
 {
-	const unsigned char *p1;
-	const unsigned char *p2;
-
-	p1 = (const unsigned char *)s1;
-	p2 = (const unsigned char *)s2;
-	while (*p1)
-	{
-		if (*p1 != *p2)
-			return (*p1 - *p2);
-		p1++;
-		p2++;
-	}
-	return (*p1 - *p2);
+	if (!tab)
+		return ;
+	while (--nb)
+		free(tab[nb]);
+	free(tab);
 }
