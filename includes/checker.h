@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 19:28:32 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/09/04 18:52:15 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/09/12 09:01:35 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,5 @@ typedef struct	s_opp
 	char		*define;
 	void		(*f)(t_stack *, t_stack *, int);
 }				t_opp;
-
-t_opp			g_opp[] =
-{
-	{PUSH_A, &push_a},
-	{PUSH_B, &push_b},
-	{SWAP_A, &swap_a},
-	{SWAP_B, &swap_b},
-	{SWAP_AB, &swap_ab},
-	{ROTATE_A, &rotate_a},
-	{ROTATE_B, &rotate_b},
-	{ROTATE_AB, &rotate_ab},
-	{ROTATE_REV_A, &rotate_rev_a},
-	{ROTATE_REV_B, &rotate_rev_b},
-	{ROTATE_REV_AB, &rotate_rev_ab},
-	{0, 0}
-};
 
 #endif
